@@ -8,7 +8,7 @@ builder.Services.AddControllersWithViews();
 
 // DI for DbContext
 builder.Services.AddDbContext<TramsactionDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection")));
 
 var app = builder.Build();
 
