@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BankTransaction.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BankTransaction.Models;
 
 namespace BankTransaction.Controllers
 {
@@ -21,15 +16,15 @@ namespace BankTransaction.Controllers
         // GET: Transactions
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Transactions.ToListAsync());
+            return View(await _context.Transactions.ToListAsync());
         }
 
-      
+
 
         // GET: Transactions/Create
-        public IActionResult AddOrEdit(int id=0)
+        public IActionResult AddOrEdit(int id = 0)
         {
-            if(id==0)
+            if (id == 0)
                 return View(new Transaction());
             else
                 return View(_context.Transactions.Find(id));
@@ -44,31 +39,17 @@ namespace BankTransaction.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Save Data Time Transaction
-                transaction.Date = DateTime.Now;
-                _context.Add(transaction);
+                if (transaction.TransactionId == 0)
+                {
+                    // Save Data Time Transaction
+                    transaction.Date = DateTime.Now;
+                    _context.Add(transaction);
+                }
+                else
+                    _context.Update(transaction);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(transaction);
-        }
-
-    
-        // GET: Transactions/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Transactions == null)
-            {
-                return NotFound();
-            }
-
-            var transaction = await _context.Transactions
-                .FirstOrDefaultAsync(m => m.TransactionId == id);
-            if (transaction == null)
-            {
-                return NotFound();
-            }
-
             return View(transaction);
         }
 
@@ -86,14 +67,11 @@ namespace BankTransaction.Controllers
             {
                 _context.Transactions.Remove(transaction);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TransactionExists(int id)
-        {
-          return _context.Transactions.Any(e => e.TransactionId == id);
-        }
+
     }
 }

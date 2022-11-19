@@ -16,3 +16,13 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Path: BankTransaction\wwwroot\css\site.css */
+.form-group input[type=submit],
+.from-group label {
+    test-tranform: uppercase;
+}
+
+.form-group label{
+    colot:gray;
+}

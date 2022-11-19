@@ -27,7 +27,8 @@ namespace BankTransaction.Models
         [MaxLength(11, ErrorMessage = "Maximum length is 11.")]
         public string SWIFTCode { get; set; }
         [Required(ErrorMessage = "This field is required.")]
-        public decimal Amount { get; set; }
+        [DataType(DataType.Currency)]
+        public decimal? Amount { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Date { get; set; }

@@ -45,13 +45,16 @@
                 @Html.DisplayFor(modelItem => item.Amount)
             </td>
             <td>
-                <a asp-action="AddOrEdit" asp-route-id="@item.TransactionId" class="btn btn-warning">
-                        <i class="fa-regular fa-pen-to-square"></i>
-                    </a> |
-
-                <a asp-action="Delete" asp-route-id="@item.TransactionId" class="btn btn-light" >
-                        <i class="fa-solid fa-trash"></i>
-                </a>
+               
+                    <form asp-action="Delete" asp-route-id="@item.TransactionId">
+                        <a asp-action="AddOrEdit" asp-route-id="@item.TransactionId" class="btn btn-light">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </a> |
+                        <button type="submit" class="btn btn-light"
+                            onclick="return confirm('Are you sure to delete this record?')">
+                            <i class="fa-solid fa-trash"></i>
+                    </form>
+               
             </td>
         </tr>
 }
