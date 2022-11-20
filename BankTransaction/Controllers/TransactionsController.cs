@@ -1,9 +1,11 @@
 ﻿using BankTransaction.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BankTransaction.Controllers;
 
+[Authorize]
 public class TransactionsController : Controller
 {
     private readonly TransactionDbContext _context;

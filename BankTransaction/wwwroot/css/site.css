@@ -1,28 +1,34 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin-bottom: 0;
+}
+
+footer {
+    background: #fff;
 }
 
 /* Path: BankTransaction\wwwroot\css\site.css */
 .form-group input[type=submit],
 .from-group label {
-    test-tranform: uppercase;
+    text-transform: uppercase;
 }
 
-.form-group label{
-    colot:gray;
+.form-group label {
+    color: gray;
 }
