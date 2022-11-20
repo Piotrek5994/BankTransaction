@@ -4,37 +4,34 @@
     ViewData["Title"] = "Transaction";
 }
 
-
-
-
-<hr />
+<hr/>
 <div class="row">
     <div class="col-md-6 offset-md-4">
         <h1>Transaction</h1>
         <form asp-action="AddOrEdit" autocomplete="off">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="TransactionId" />
-            <input type="hidden" asp-for="Date" />
+            <input type="hidden" asp-for="TransactionId"/>
+            <input type="hidden" asp-for="Date"/>
             <div class="form-group">
                 <label asp-for="AccountNumber" class="control-label"></label>
-                <input asp-for="AccountNumber" class="form-control" />
+                <input asp-for="AccountNumber" class="form-control"/>
                 <span asp-validation-for="AccountNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BeneficiaryName" class="control-label"></label>
-                <input asp-for="BeneficiaryName" class="form-control" />
+                <input asp-for="BeneficiaryName" class="form-control"/>
                 <span asp-validation-for="BeneficiaryName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BankName" class="control-label"></label>
-                <input asp-for="BankName" class="form-control" />
+                <input asp-for="BankName" class="form-control"/>
                 <span asp-validation-for="BankName" class="text-danger"></span>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label asp-for="SWIFTCode" class="control-label"></label>
-                        <input asp-for="SWIFTCode" class="form-control" />
+                        <input asp-for="SWIFTCode" class="form-control"/>
                         <span asp-validation-for="SWIFTCode" class="text-danger"></span>
                     </div>
                 </div>
@@ -49,19 +46,17 @@
             <div class="row mt-2">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input type="submit" value="Submit" class="btn btn-primary w-100" />
+                        <input type="submit" value="Submit" class="btn btn-primary w-100"/>
                     </div>
-                    </div>
-                 <div class="col-md-6">
+                </div>
+                <div class="col-md-6">
                     <a asp-action="Index" class="btn btn-secondary w-100">View All</a>
-                    </div>
+                </div>
             </div>
         </form>
     </div>
 </div>
 
-
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }

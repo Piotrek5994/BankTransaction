@@ -2,35 +2,35 @@
 
 @{
     ViewData["Title"] = "Index";
-    
 }
 
 <h1>Passbook</h1>
 
-
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.AccountNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BeneficiaryName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Amount)
-            </th>
-            <th>
-                <a asp-action="AddOrEdit" class="btn btn-sm btn-success">
-                    <i class="fa-solid fa-plus"></i>New</a>
-            </th>
-        </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BeneficiaryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            <a asp-action="AddOrEdit" class="btn btn-sm btn-success">
+                <i class="fa-solid fa-plus"></i>New
+            </a>
+        </th>
+    </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.AccountNumber)
@@ -45,18 +45,19 @@
                 @Html.DisplayFor(modelItem => item.Amount)
             </td>
             <td>
-               
-                    <form asp-action="Delete" asp-route-id="@item.TransactionId">
-                        <a asp-action="AddOrEdit" asp-route-id="@item.TransactionId" class="btn btn-light">
-                            <i class="fa-regular fa-pen-to-square"></i>
-                        </a> |
-                        <button type="submit" class="btn btn-light"
+
+                <form asp-action="Delete" asp-route-id="@item.TransactionId">
+                    <a asp-action="AddOrEdit" asp-route-id="@item.TransactionId" class="btn btn-light">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                    </a> |
+                    <button type="submit" class="btn btn-light"
                             onclick="return confirm('Are you sure to delete this record?')">
-                            <i class="fa-solid fa-trash"></i>
-                    </form>
-               
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </form>
+
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>

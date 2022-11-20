@@ -6,7 +6,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9854e18-f8f4-4f6b-a7a4-f7c96b89f174" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BankTransaction/Models/TransactionDbContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/global.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BankTransaction/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BankTransaction/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankTransaction/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankTransaction/Controllers/TransactionsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Controllers/TransactionsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankTransaction/Migrations/20221117205101_Initial Create.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Migrations/20221117205101_Initial Create.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankTransaction/Migrations/20221117205101_Initial Create.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Migrations/20221117205101_Initial Create.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankTransaction/Migrations/TramsactionDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Migrations/TramsactionDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankTransaction/Models/ErrorViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Models/ErrorViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankTransaction/Models/TramsactionDbContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankTransaction/Models/Transaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Models/Transaction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankTransaction/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankTransaction/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankTransaction/Views/Home/Privacy.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Views/Home/Privacy.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankTransaction/Views/Shared/Error.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Views/Shared/Error.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankTransaction/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankTransaction/Views/Shared/_ValidationScriptsPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Views/Shared/_ValidationScriptsPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankTransaction/Views/Transactions/AddOrEdit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Views/Transactions/AddOrEdit.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankTransaction/Views/Transactions/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Views/Transactions/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankTransaction/Views/_ViewImports.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Views/_ViewImports.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankTransaction/Views/_ViewStart.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Views/_ViewStart.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,13 +41,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;CodeCleanupOptionsPage&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.BankTransaction">
     <configuration name="BankTransaction" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/BankTransaction/BankTransaction.csproj" />
@@ -68,7 +88,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668947719038</updated>
-      <workItem from="1668947723073" duration="19000" />
+      <workItem from="1668947723073" duration="531000" />
+      <workItem from="1668948279930" duration="163000" />
     </task>
     <servers />
   </component>
@@ -77,5 +98,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

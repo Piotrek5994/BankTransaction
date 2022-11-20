@@ -8,55 +8,54 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace BankTransaction.Migrations
+namespace BankTransaction.Migrations;
+
+[DbContext(typeof(TransactionDbContext))]
+partial class TramsactionDbContextModelSnapshot : ModelSnapshot
 {
-    [DbContext(typeof(TramsactionDbContext))]
-    partial class TramsactionDbContextModelSnapshot : ModelSnapshot
+    protected override void BuildModel(ModelBuilder modelBuilder)
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
-        {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.10")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+        modelBuilder
+            .HasAnnotation("ProductVersion", "6.0.10")
+            .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+        SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("BankTransaction.Models.Transaction", b =>
-                {
-                    b.Property<int>("TransactionId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+        modelBuilder.Entity("BankTransaction.Models.Transaction", b =>
+            {
+                b.Property<int>("TransactionId")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TransactionId"), 1L, 1);
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TransactionId"), 1L, 1);
 
-                    b.Property<string>("AccountNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)");
+                b.Property<string>("AccountNumber")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(100)");
 
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
+                b.Property<decimal>("Amount")
+                    .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("BankName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)");
+                b.Property<string>("BankName")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("BeneficiaryName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)");
+                b.Property<string>("BeneficiaryName")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(100)");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
+                b.Property<DateTime>("Date")
+                    .HasColumnType("datetime2");
 
-                    b.Property<string>("SWIFTCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(11)");
+                b.Property<string>("SWIFTCode")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(11)");
 
-                    b.HasKey("TransactionId");
+                b.HasKey("TransactionId");
 
-                    b.ToTable("Transactions");
-                });
+                b.ToTable("Transactions");
+            });
 #pragma warning restore 612, 618
-        }
     }
 }
