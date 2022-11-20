@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Build.Exceptions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
 // DI for DbContext
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<TransactionDbContext>();
 
 builder.Services.AddDbContext<TransactionDbContext>(options =>

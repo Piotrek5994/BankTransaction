@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel;
-using Microsoft.AspNetCore.Identity;
 
 namespace BankTransaction.Models;
 
 public class Transaction
 {
-    [Key] public int TransactionId { get; set; }
+    [Key] 
+    public int TransactionId { get; set; }
 
     [Column(TypeName = "nvarchar(100)")]
     [DisplayName("Sender Email")]
@@ -38,7 +38,7 @@ public class Transaction
     [Required(ErrorMessage = "This field is required.")]
     [DataType(DataType.Currency)]
     public decimal? Amount { get; set; }
-
+    
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
     public DateTime Date { get; set; }
 }

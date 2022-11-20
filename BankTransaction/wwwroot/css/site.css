@@ -23,6 +23,17 @@ footer {
     background: #fff;
 }
 
+img {
+    max-width: 100%;
+    
+}
+.avatar {
+    vertical-align: middle;
+    width: 70px;
+    height: 70px;
+    border-radius: 70%;
+}
+
 /* Path: BankTransaction\wwwroot\css\site.css */
 .form-group input[type=submit],
 .from-group label {

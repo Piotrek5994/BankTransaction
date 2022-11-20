@@ -45,12 +45,27 @@ public class TransactionsController : Controller
         {
             if (transaction.TransactionId == 0)
             {
+                var user = _context.Users.Find(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+                if (user.AccountBalance < transaction.Amount)
+                {
+                    ModelState.AddModelError("Amount", "You don't have enough money");
+                    return View(transaction);
+                }
+                if (transaction.Amount < 0.01m)
+                {
+                    ModelState.AddModelError("Amount", "You can't send less than 0.01");
+                    return View(transaction);
+                }
+
+                user.AccountBalance -= transaction.Amount ?? 0;
+
                 transaction.Date = DateTime.Now;
-                transaction.SenderEmail = User.FindFirstValue(ClaimTypes.Email);
+                transaction.SenderEmail = user.Email;
+
+                _context.Update(user);
                 _context.Add(transaction);
             }
-            else
-                _context.Update(transaction);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

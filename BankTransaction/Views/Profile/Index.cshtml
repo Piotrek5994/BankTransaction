@@ -1,7 +1,17 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model BankTransaction.Models.User
+
 @{
+    ViewData["Title"] = "Index";
 }
 
-<h1>Dupa</h1>
+<div class="form-group">
+    <img src="/img/norwegia-odzie-gory-zima.jpeg" alt="Avatar" class="avatar" />
+    <h1>@User.Identity?.Name</h1>
+    <h2>@Html.DisplayNameFor(model => model.AccountBalance): @Model.AccountBalance</h2>
+    <form method="get" action="/Profile/AddMoney">
+        <input id="amount" name="amount" type="number" placeholder="Amount" min="0" step="0.01" />
+        <input type="submit" value="Add money" />
+    </form>
+</div>
+
+
