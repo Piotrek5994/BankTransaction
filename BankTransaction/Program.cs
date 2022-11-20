@@ -32,7 +32,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Transactions}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 var cultureInfo = new CultureInfo("en-US");
 cultureInfo.NumberFormat.NumberDecimalSeparator = ".";
