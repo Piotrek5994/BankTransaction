@@ -6,29 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9854e18-f8f4-4f6b-a7a4-f7c96b89f174" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BankTransaction/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankTransaction/Controllers/ProfileController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankTransaction/Views/Profile/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BankTransaction/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BankTransaction/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/BankTransaction/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/BankTransaction/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/BankTransaction/FileContentIndex/391a58a4-0abe-48c7-b044-5ce98cca0751.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/BankTransaction/FileContentIndex/4a915e62-c653-4a7b-9679-7f1f481bd145.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/BankTransaction/FileContentIndex/693d09a3-5617-4753-a9eb-66a8e5ebfcae.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/BankTransaction/FileContentIndex/879b2e81-869f-41c6-b4f4-9a63f2941ff8.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/BankTransaction/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/BankTransaction/v17/.futdcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/BankTransaction/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/BankTransaction/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/banktransaction.metadata.v5.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/banktransaction.metadata.v5.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/banktransaction.projects.v5.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/banktransaction.projects.v5.1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankTransaction/BankTransaction.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/BankTransaction.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankTransaction/BankTransaction.csproj.user" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/BankTransaction.csproj.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankTransaction/Controllers/TransactionsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Controllers/TransactionsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankTransaction/Migrations/20221117205101_Initial Create.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankTransaction/Migrations/20221117205101_Initial Create.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankTransaction/Migrations/TramsactionDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankTransaction/Models/TransactionDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Models/TransactionDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankTransaction/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankTransaction/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankTransaction/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/BankTransaction/wwwroot/css/site.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +82,7 @@
       <updated>1668947719038</updated>
       <workItem from="1668947723073" duration="531000" />
       <workItem from="1668948279930" duration="3107000" />
-      <workItem from="1668951601493" duration="4666000" />
+      <workItem from="1668951601493" duration="5589000" />
     </task>
     <servers />
   </component>
