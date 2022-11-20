@@ -1,12 +1,17 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel;
+using Microsoft.AspNetCore.Identity;
 
 namespace BankTransaction.Models;
 
 public class Transaction
 {
     [Key] public int TransactionId { get; set; }
+
+    [Column(TypeName = "nvarchar(100)")]
+    [DisplayName("Sender Email")]
+    public string SenderEmail { get; set; }
 
     [Column(TypeName = "nvarchar(12)")]
     [Display(Name = "Account Number")]

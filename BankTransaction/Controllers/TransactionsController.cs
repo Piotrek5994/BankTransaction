@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace BankTransaction.Controllers;
 
@@ -18,7 +19,10 @@ public class TransactionsController : Controller
     // GET: Transactions
     public async Task<IActionResult> Index()
     {
-        return View(await _context.Transactions.ToListAsync());
+        var transactions = await _context.Transactions
+            .Where(x => x.SenderEmail == User.FindFirstValue(ClaimTypes.Email))
+            .ToListAsync();
+        return View(transactions);
     }
 
     // GET: Transactions/Create
@@ -35,14 +39,14 @@ public class TransactionsController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> AddOrEdit([Bind("TransactionId,AccountNumber,BeneficiaryName,BankName,SWIFTCode,Amount,Date")] Transaction transaction)
+    public async Task<IActionResult> AddOrEdit([Bind("TransactionId,SenderEmail,AccountNumber,BeneficiaryName,BankName,SWIFTCode,Amount,Date")] Transaction transaction)
     {
         if (ModelState.IsValid)
         {
             if (transaction.TransactionId == 0)
             {
-                // Save Data Time Transaction
                 transaction.Date = DateTime.Now;
+                transaction.SenderEmail = User.FindFirstValue(ClaimTypes.Email);
                 _context.Add(transaction);
             }
             else

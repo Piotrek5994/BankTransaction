@@ -55,6 +55,10 @@ namespace BankTransaction.Migrations
                         .HasMaxLength(11)
                         .HasColumnType("nvarchar(11)");
 
+                    b.Property<string>("SenderEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
+
                     b.HasKey("TransactionId");
 
                     b.ToTable("Transactions");

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankTransaction.Migrations
 {
     [DbContext(typeof(TransactionDbContext))]
-    [Migration("20221120140710_InitialCreate")]
+    [Migration("20221120173325_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,6 +56,10 @@ namespace BankTransaction.Migrations
                         .IsRequired()
                         .HasMaxLength(11)
                         .HasColumnType("nvarchar(11)");
+
+                    b.Property<string>("SenderEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("TransactionId");
 

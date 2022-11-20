@@ -10,7 +10,8 @@
         <h1>Transaction</h1>
         <form asp-action="AddOrEdit" autocomplete="off">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="TransactionId"/>
+            <input type="hidden" asp-for="TransactionId" />
+            <input type="hidden" asp-for="SenderEmail" value="@User.Identity?.Name" />
             <input type="hidden" asp-for="Date"/>
             <div class="form-group">
                 <label asp-for="AccountNumber" class="control-label"></label>

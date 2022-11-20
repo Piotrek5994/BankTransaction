@@ -54,6 +54,7 @@ namespace BankTransaction.Migrations
                 {
                     TransactionId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    SenderEmail = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     AccountNumber = table.Column<string>(type: "nvarchar(12)", maxLength: 12, nullable: false),
                     BeneficiaryName = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     BankName = table.Column<string>(type: "nvarchar(100)", nullable: false),
