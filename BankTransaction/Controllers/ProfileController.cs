@@ -1,6 +1,7 @@
 ﻿using BankTransaction.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Numerics;
 using System.Security.Claims;
 
 namespace BankTransaction.Controllers;
@@ -24,6 +25,7 @@ public class ProfileController : Controller
     [HttpGet()]
     public IActionResult AddMoney([FromQuery(Name = "amount")] decimal amount)
     {
+        // dodawanie pieniedzy do użytkownika
         var user = _context.Users.Find(User.FindFirstValue(ClaimTypes.NameIdentifier));
         user.AccountBalance += amount;
         _context.Update(user);

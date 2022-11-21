@@ -13,10 +13,10 @@ public class Transaction
     [DisplayName("Sender Email")]
     public string SenderEmail { get; set; }
 
-    [Column(TypeName = "nvarchar(12)")]
+    [Column(TypeName = "nvarchar(16)")]
     [Display(Name = "Account Number")]
     [Required(ErrorMessage = "This field is required.")]
-    [MaxLength(12, ErrorMessage = "Maximum length is 12.")]
+    [MaxLength(16, ErrorMessage = "Maximum length is 16.")]
     public string AccountNumber { get; set; }
 
     [Column(TypeName = "nvarchar(100)")]

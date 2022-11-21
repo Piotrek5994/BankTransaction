@@ -6,11 +6,13 @@
 
 <div class="form-group">
     <img src="/img/norwegia-odzie-gory-zima.jpeg" alt="Avatar" class="avatar" />
-    <h1>@User.Identity?.Name</h1>
-    <h2>@Html.DisplayNameFor(model => model.AccountBalance): @Model.AccountBalance</h2>
+    <h1>Account Number</h1>
+    <h4>@Html.DisplayNameFor(number => number.AccountNumber) @Model.AccountNumber</h4>
+    <h2>@User.Identity?.Name</h2>
+    <h3>@Html.DisplayNameFor(model => model.AccountBalance): @Model.AccountBalance</h3>
     <form method="get" action="/Profile/AddMoney">
         <input id="amount" name="amount" type="number" placeholder="Amount" min="0" step="0.01" />
-        <input type="submit" value="Add money" />
+        <input type="submit" value="Get an inheritance" />
     </form>
 </div>
 

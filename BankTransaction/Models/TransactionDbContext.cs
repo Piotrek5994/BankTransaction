@@ -18,6 +18,7 @@ public class TransactionDbContext : IdentityDbContext<User>
 
         base.OnModelCreating(modelBuilder);
 
+        //ustawienie długośc konta na 250 znaków
         modelBuilder.Entity<User>()
             .Property(e => e.AccountBalance)
             .HasMaxLength(250);

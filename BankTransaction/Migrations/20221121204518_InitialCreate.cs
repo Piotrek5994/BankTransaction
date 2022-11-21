@@ -29,6 +29,7 @@ namespace BankTransaction.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     AccountBalance = table.Column<decimal>(type: "decimal(18,2)", maxLength: 250, nullable: false),
+                    AccountNumber = table.Column<string>(type: "nvarchar(16)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -56,7 +57,7 @@ namespace BankTransaction.Migrations
                     TransactionId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SenderEmail = table.Column<string>(type: "nvarchar(100)", nullable: false),
-                    AccountNumber = table.Column<string>(type: "nvarchar(12)", maxLength: 12, nullable: false),
+                    AccountNumber = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: false),
                     BeneficiaryName = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     BankName = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     SWIFTCode = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
@@ -205,6 +206,12 @@ namespace BankTransaction.Migrations
                 name: "EmailIndex",
                 table: "AspNetUsers",
                 column: "NormalizedEmail");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUsers_AccountNumber",
+                table: "AspNetUsers",
+                column: "AccountNumber",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",

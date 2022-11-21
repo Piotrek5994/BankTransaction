@@ -32,8 +32,8 @@ namespace BankTransaction.Migrations
 
                     b.Property<string>("AccountNumber")
                         .IsRequired()
-                        .HasMaxLength(12)
-                        .HasColumnType("nvarchar(12)");
+                        .HasMaxLength(16)
+                        .HasColumnType("nvarchar(16)");
 
                     b.Property<decimal?>("Amount")
                         .IsRequired()
@@ -75,6 +75,10 @@ namespace BankTransaction.Migrations
                     b.Property<decimal>("AccountBalance")
                         .HasMaxLength(250)
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("AccountNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(16)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -121,6 +125,9 @@ namespace BankTransaction.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AccountNumber")
+                        .IsUnique();
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
