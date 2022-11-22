@@ -17,6 +17,7 @@ body {
     min-height: 100vh;
     box-sizing: border-box;
     margin-bottom: 0;
+    
 }
 
 footer {
@@ -38,8 +39,10 @@ img {
 .form-group input[type=submit],
 .from-group label {
     text-transform: uppercase;
+   
 }
 
 .form-group label {
     color: gray;
+
 }
