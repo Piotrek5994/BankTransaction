@@ -51,25 +51,6 @@ namespace BankTransaction.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Transactions",
-                columns: table => new
-                {
-                    TransactionId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    SenderEmail = table.Column<string>(type: "nvarchar(100)", nullable: false),
-                    AccountNumber = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: false),
-                    BeneficiaryName = table.Column<string>(type: "nvarchar(100)", nullable: false),
-                    BankName = table.Column<string>(type: "nvarchar(100)", nullable: false),
-                    SWIFTCode = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
-                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Transactions", x => x.TransactionId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -175,6 +156,31 @@ namespace BankTransaction.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Transactions",
+                columns: table => new
+                {
+                    TransactionId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SenderEmail = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    AccountNumber = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: false),
+                    BeneficiaryName = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    BankName = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    SWIFTCode = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
+                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Transactions", x => x.TransactionId);
+                    table.ForeignKey(
+                        name: "FK_Transactions_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -219,6 +225,11 @@ namespace BankTransaction.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Transactions_UserId",
+                table: "Transactions",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -1,0 +1,19 @@
+﻿@using BankTransaction.Models;
+@model Tuple<List<Transaction>,List<User>>
+
+@{
+    ViewData["Title"] = "Amin Panel";
+}
+
+@foreach(var item in Model.Item1)
+{
+    <div>
+        @item.Amount
+    </div>
+}
+@foreach (var item in Model.Item2)
+{
+    <div>
+        @item.UserName
+    </div>
+}

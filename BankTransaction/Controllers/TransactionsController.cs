@@ -1,6 +1,8 @@
 ﻿using BankTransaction.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
@@ -10,15 +12,19 @@ namespace BankTransaction.Controllers;
 public class TransactionsController : Controller
 {
     private readonly TransactionDbContext _context;
+    private readonly UserManager<User> _userManager;    
 
-    public TransactionsController(TransactionDbContext context)
+    public TransactionsController(TransactionDbContext context, UserManager<User> manager)
     {
         _context = context;
+        _userManager = manager;
     }
 
     // GET: Transactions
     public async Task<IActionResult> Index()
     {
+        
+        var abc = await _context.Transactions.Include(t => t.User).ToListAsync();
         //tworzenie osobnych profili przy zakładaniu konta
         var transactions = await _context.Transactions
             .Where(x => x.SenderEmail == User.FindFirstValue(ClaimTypes.Email))
@@ -79,6 +85,7 @@ public class TransactionsController : Controller
             SWIFTCode = transaction.SWIFTCode,
             Amount = transaction.Amount,
             Date = DateTime.Now,
+            User = await _userManager.GetUserAsync(HttpContext.User)
         };
 
         transaction.Date = DateTime.Now;

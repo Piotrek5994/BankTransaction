@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace BankTransaction.Models;
 
@@ -41,4 +42,8 @@ public class Transaction
     
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
     public DateTime Date { get; set; }
+    // Tworzenie relacji wiele do jednego że każda transakcja musi miec 1 użytkownika
+
+    [ValidateNever]
+    public User User { get; set; }
 }

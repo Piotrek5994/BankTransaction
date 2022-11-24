@@ -15,6 +15,9 @@ public class User : IdentityUser
     [Column(TypeName = "nvarchar(16)")]
     public string AccountNumber { get; set; }
 
+    // tworzenie relacjo wiele do wielu
+    public ICollection<Transaction> Transactions { get; set; }
+
     public User(): base()
     {
         //losowanie numeru konta 
