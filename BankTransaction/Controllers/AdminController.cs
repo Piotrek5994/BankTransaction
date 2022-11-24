@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using BankTransaction.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BankTransaction.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
 

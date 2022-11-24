@@ -4,16 +4,20 @@
 @{
     ViewData["Title"] = "Amin Panel";
 }
-
+<p>Tabela Histori Przelewów</p>
 @foreach(var item in Model.Item1)
 {
     <div>
-        @item.Amount
+        <span style="margin-right: 10px">@item.Amount</span>
+        <span style="margin-right: 10px">@item.User?.Email</span>
+        <span style="margin-right: 10px">@item.BeneficiaryName</span>
     </div>
 }
+<p>Stan konta z klientami</p>
 @foreach (var item in Model.Item2)
 {
     <div>
-        @item.UserName
+        <span style="margin-right: 10px">@item.AccountBalance</span>
+        <span>@item.Email</span>
     </div>
 }
