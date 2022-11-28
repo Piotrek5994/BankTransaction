@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Build.Exceptions;
+using System.Configuration;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,8 @@ builder.Services.AddRazorPages();
 
 // DI for DbContext
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+    //dodanie ról administratora
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<TransactionDbContext>();
 
 builder.Services.AddDbContext<TransactionDbContext>(options =>
@@ -20,6 +24,12 @@ builder.Services.AddDbContext<TransactionDbContext>(options =>
 
 builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.DefaultRequestCulture = new RequestCulture("en-US"));
+
+//Stworzenie roli
+builder.Services.AddAuthorization(options => {
+        options.AddPolicy("Admin",policy => policy.RequireRole("Administrator"));
+});
+
 
 var app = builder.Build();
 
@@ -36,6 +46,7 @@ app.UseRouting();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
 
 app.MapControllerRoute(
     name: "default",

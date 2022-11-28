@@ -2,10 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 using BankTransaction.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 namespace BankTransaction.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "Admin")]
     public class AdminController : Controller
     {
 
@@ -20,5 +23,8 @@ namespace BankTransaction.Controllers
             Tuple<List<Transaction>, List<User>> tuple = new Tuple<List<Transaction>, List<User>>(_context.Transactions.ToList(), _context.Users.ToList());
             return View(tuple);
         }
+        
+       
+
     }
 }
