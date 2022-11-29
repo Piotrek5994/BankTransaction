@@ -5,7 +5,8 @@ using System.Globalization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Build.Exceptions;
 using System.Configuration;
-
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,17 +20,23 @@ builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfi
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<TransactionDbContext>();
 
+//builder.Services.AddDbContext<TransactionDbContext>(options =>
+//    options.UseSqlite("Data Source = BankTransaction.db"));
+
+
 builder.Services.AddDbContext<TransactionDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection")));
 
 builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.DefaultRequestCulture = new RequestCulture("en-US"));
 
-//Stworzenie roli
-builder.Services.AddAuthorization(options => {
-        options.AddPolicy("Admin",policy => policy.RequireRole("Administrator"));
-});
 
+
+//Stworzenie roli
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Admin", policy => policy.RequireRole("Administrator"));
+});
 
 var app = builder.Build();
 

@@ -8,8 +8,8 @@ using System.Configuration;
 
 namespace BankTransaction.Controllers
 {
-    [Authorize(Policy = "Admin")]
-    public class AdminController : Controller
+    [Authorize]
+        public class AdminController : Controller
     {
 
         private readonly TransactionDbContext _context;
