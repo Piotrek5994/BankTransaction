@@ -7,16 +7,17 @@ using Microsoft.Build.Exceptions;
 using System.Configuration;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Authorization;
-using BankTransaction.ClassInterface;
-using BankTransaction.ClassInterface.Interface;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Mvc;
+using BankTransaction.Controllers.Repositores.Interface;
+using BankTransaction.Controllers.Repositores;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-//builder.Services.AddSingleton<ITransactionCopy, TransactionServiceEFcs>();
+builder.Services.AddScoped<IProfieService,ProfieService>();
+
 
 // DI for DbContext
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)

@@ -1,4 +1,5 @@
-﻿using BankTransaction.Models;
+﻿using BankTransaction.Controllers.Repositores.Interface;
+using BankTransaction.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Numerics;
@@ -10,10 +11,12 @@ namespace BankTransaction.Controllers;
 public class ProfileController : Controller
 {
     private readonly TransactionDbContext _context;
+    private readonly IProfieService _profileService;
 
-    public ProfileController(TransactionDbContext context)
+    public ProfileController(TransactionDbContext context, IProfieService profileService)
     {
         _context = context;
+        _profileService = profileService;
     }
     
     public IActionResult Index()
@@ -27,9 +30,14 @@ public class ProfileController : Controller
     {
         // dodawanie pieniedzy do użytkownika
         var user = _context.Users.Find(User.FindFirstValue(ClaimTypes.NameIdentifier));
-        user.AccountBalance += amount;
-        _context.Update(user);
-        _context.SaveChanges();
+        if (user == null)
+        {
+            return NotFound();
+        }
+        //user.AccountBalance += amount;
+        //_context.Update(user);
+        //_context.SaveChanges();
+        _profileService.AddMoney(user, amount);
 
         return RedirectToAction(nameof(Index));
     }
