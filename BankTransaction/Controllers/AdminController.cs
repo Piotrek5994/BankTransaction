@@ -5,11 +5,14 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace BankTransaction.Controllers
 {
-    [Authorize]
-        public class AdminController : Controller
+    
+    [Authorize(Roles ="admin")]
+    public class AdminController : Controller
     {
 
         private readonly TransactionDbContext _context;

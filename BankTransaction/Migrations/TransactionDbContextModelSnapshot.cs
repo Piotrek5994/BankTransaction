@@ -143,6 +143,44 @@ namespace BankTransaction.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "3b410554-0f1e-4b65-83dc-67e39e3ca6e6",
+                            AccessFailedCount = 0,
+                            AccountBalance = 0m,
+                            AccountNumber = "1670089534760785",
+                            ConcurrencyStamp = "d5258c91-24cd-41b4-8a19-642a51c4b3e8",
+                            Email = "Misiek5994@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "MISIEK5994@GMAIL.COM",
+                            NormalizedUserName = "MISIEK5994@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHID9L0/5DiyZ+aZJocqWYtyATN2/fJmSwnYC1ydN3Hwwh0kLQpoDVOrFVIcvvkOZw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "67a77d17-2e47-4873-8544-f7f2bfe3672a",
+                            TwoFactorEnabled = false,
+                            UserName = "admin"
+                        },
+                        new
+                        {
+                            Id = "9ec7e300-8696-4f1a-b796-ae4b2a5f46bf",
+                            AccessFailedCount = 0,
+                            AccountBalance = 0m,
+                            AccountNumber = "1670089534760214",
+                            ConcurrencyStamp = "fc3148c1-e0a5-4524-a057-ae96925b18e2",
+                            Email = "Random5994@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "RANDOM5994@GMAIL.COM",
+                            NormalizedUserName = "RANDOM5994@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAECCBpHFMZE359NbdteuSN+WKHpNn2lK/SumnvFeKycLW8RytuWrrHNdbfQ3Nx+GMBQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "1ee2d0cf-eba4-4cd5-b8cb-156b1e79b42a",
+                            TwoFactorEnabled = false,
+                            UserName = "user"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -170,6 +208,22 @@ namespace BankTransaction.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "fc06237b-62e1-4c49-b47d-82acd0599925",
+                            ConcurrencyStamp = "baa4fc07-1f9e-40f8-94fc-5506ad3a3e76",
+                            Name = "admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "23f2b56b-a739-4eb2-a083-5cbb29aef0a9",
+                            ConcurrencyStamp = "e6d676cc-61ba-475e-83ef-64885407baaa",
+                            Name = "user",
+                            NormalizedName = "USER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -259,6 +313,18 @@ namespace BankTransaction.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "3b410554-0f1e-4b65-83dc-67e39e3ca6e6",
+                            RoleId = "fc06237b-62e1-4c49-b47d-82acd0599925"
+                        },
+                        new
+                        {
+                            UserId = "9ec7e300-8696-4f1a-b796-ae4b2a5f46bf",
+                            RoleId = "23f2b56b-a739-4eb2-a083-5cbb29aef0a9"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

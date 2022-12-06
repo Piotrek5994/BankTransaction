@@ -7,18 +7,23 @@ using Microsoft.Build.Exceptions;
 using System.Configuration;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Authorization;
+using BankTransaction.ClassInterface;
+using BankTransaction.ClassInterface.Interface;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+//builder.Services.AddSingleton<ITransactionCopy, TransactionServiceEFcs>();
 
 // DI for DbContext
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
     //dodanie ról administratora
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<TransactionDbContext>();
+    
 
 //builder.Services.AddDbContext<TransactionDbContext>(options =>
 //    options.UseSqlite("Data Source = BankTransaction.db"));
@@ -29,6 +34,7 @@ builder.Services.AddDbContext<TransactionDbContext>(options =>
 
 builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.DefaultRequestCulture = new RequestCulture("en-US"));
+
 
 
 

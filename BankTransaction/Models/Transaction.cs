@@ -46,4 +46,9 @@ public class Transaction
 
     [ValidateNever]
     public User User { get; set; }
+
+    //public Transaction Clone()
+    //{
+    //    return (Transaction)this.MemberwiseClone();
+    //}
 }
