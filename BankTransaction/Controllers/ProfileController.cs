@@ -47,6 +47,66 @@ public class ProfileController : Controller
     public IActionResult Transaction()
     {
         return View();
-    }    
-   
+    }
+    public IActionResult ConvertToEuro([FromQuery(Name = "amount")] decimal amount)
+    {
+        // konwertowanie pieniedzy na euro
+        var user = _context.Users.Find(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        if (user == null)
+        {
+            return NotFound();
+        }
+        //user.AccountBalance = amount * (decimal)0.21;
+        //_context.Update(user);
+        //_context.SaveChanges();
+        _profileService.ConvertToEuro(user, amount);
+        return RedirectToAction(nameof(Index));
+    }
+
+    public IActionResult ConvertToDolar([FromQuery(Name = "amount")] decimal amount)
+    {
+        // konwertowanie pieniedzy na dolary
+        var user = _context.Users.Find(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        if (user == null)
+        {
+            return NotFound();
+        }
+        //user.AccountBalance = amount * (decimal)0.22;
+        //_context.Update(user);
+        //_context.SaveChanges();
+        _profileService.ConvertToDolar(user, amount);
+        return RedirectToAction(nameof(Index));
+    }
+
+    public IActionResult EuroToPln([FromQuery(Name = "amount")] decimal amount)
+    {
+        // konwertowanie pieniedzy z euro na pln
+        var user = _context.Users.Find(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        if (user == null)
+        {
+            return NotFound();
+        }
+        //user.AccountBalance = amount / (decimal)0.21;
+        //_context.Update(user);
+        //_context.SaveChanges();
+        _profileService.EuroToPln(user, amount);
+        return RedirectToAction(nameof(Index));
+    }
+
+    public IActionResult UsdToPln([FromQuery(Name = "amount")] decimal amount)
+    {
+        // konwertowanie pieniedzy z dolara na pln
+        var user = _context.Users.Find(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        if (user == null)
+        {
+            return NotFound();
+        }
+        //user.AccountBalance = amount / (decimal)0.22;
+        //_context.Update(user);
+        //_context.SaveChanges();
+        _profileService.UsdToPln(user, amount);
+        return RedirectToAction(nameof(Index));
+    }
+
+
 }
