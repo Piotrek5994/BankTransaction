@@ -2,6 +2,8 @@
 using BankTransaction.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Numerics;
 using System.Security.Claims;
 
@@ -45,5 +47,6 @@ public class ProfileController : Controller
     public IActionResult Transaction()
     {
         return View();
-    }
+    }    
+   
 }
