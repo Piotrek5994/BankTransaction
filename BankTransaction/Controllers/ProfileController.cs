@@ -74,7 +74,7 @@ public class ProfileController : Controller
         //user.AccountBalance = amount * (decimal)0.22;
         //_context.Update(user);
         //_context.SaveChanges();
-        _profileService.ConvertToDolar(user, amount);
+        _profileService.ConvertToDolar(user, amount3);
         return RedirectToAction(nameof(Index));
     }
 
