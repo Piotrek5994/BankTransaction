@@ -14,13 +14,13 @@ namespace BankTransaction.Controllers
         {
             _context = context;
         }
-
+        
         [HttpGet]
         public IActionResult Get()
         {
             Tuple<List<Transaction>, List<User>> tuple = new Tuple<List<Transaction>, List<User>>(_context.Transactions.ToList(), _context.Users.ToList());
             return new OkObjectResult(tuple);
         }
-      
+
     }
 }
