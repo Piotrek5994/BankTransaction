@@ -18,12 +18,6 @@ namespace BankTransaction.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_context.Users.ToList());
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult Get(int id )
-        {
             Tuple<List<Transaction>, List<User>> tuple = new Tuple<List<Transaction>, List<User>>(_context.Transactions.ToList(), _context.Users.ToList());
             return new OkObjectResult(tuple);
         }
