@@ -7,10 +7,12 @@ namespace BankTransaction.Controllers.Repositores.Interface
         {
             user.AccountBalance += amount;
         }
+        
         public void ConvertToEuro(User user, decimal amount)
         {
             user.AccountBalance = amount * (decimal)0.21;
         }
+        
         public void ConvertToDolar(User user, decimal amount)
         {
             user.AccountBalance = amount * (decimal)0.25;
